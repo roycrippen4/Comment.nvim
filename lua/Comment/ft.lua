@@ -264,10 +264,11 @@ end
 ---vue, markdown etc.
 ---
 ---NOTE: This ignores `tree-sitter-comment` parser, if installed.
----@param tree userdata Parse tree to be walked
+
+---@param tree vim.treesitter.LanguageTree Parse tree to be walked
 ---@param range integer[] Range to check
 ---{start_row, start_col, end_row, end_col}
----@return userdata #Returns a |treesitter-languagetree|
+---@return vim.treesitter.LanguageTree #Returns a |treesitter-languagetree|
 ---@see treesitter-languagetree
 ---@see lua-treesitter-core
 ---@usage [[

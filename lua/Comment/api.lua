@@ -244,7 +244,12 @@ end
 ---@usage ]]
 function api.call(cb, op)
     return function()
-        A.nvim_set_option('operatorfunc', ("v:lua.require'Comment.api'.locked'%s'"):format(cb))
+        A.nvim_set_option_value(
+            'operatorfunc',
+            ("v:lua.require'Comment.api'.locked'%s'"):format(cb),
+            { scope = 'global' }
+        )
+        -- A.nvim_set_option('operatorfunc', ("v:lua.require'Comment.api'.locked'%s'"):format(cb))
         Config.position = Config:get().sticky and A.nvim_win_get_cursor(0) or nil
         return op
     end
